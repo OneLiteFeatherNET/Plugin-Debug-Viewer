@@ -4,28 +4,18 @@ export function latestlogHighlightjs(hljs: HLJSApi): Language {
     return {
         name: "Paper latest log",
         contains: [
+            // Time
             {
-                end: "(\\]: )",
-                contains: [
-                    // Time
-                    {
-                        match: "(\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\])",
-                        scope: "regexp",
-                        relevance: 1
-                    },
-                    // Level
-                    {
-                        match: "(\\[[A-Za-z #0-9]*\\/([A-Z]*)\\])",
-                        scope: "meta",
-                        relevance: 0
-                    },
-                    {
-                        begin: "(\\w*)?",
-                        scope: "string",
-                        relevance: 0
-                    }
-                ]
-            }
+                match: "(\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\])",
+                scope: "regexp",
+                relevance: 1
+            },
+            // Level
+            {
+                match: "(\\[[A-Za-z #0-9]*\\/([A-Z]*)\\])",
+                scope: "meta",
+                relevance: 0
+            },
 
         ]
     };
